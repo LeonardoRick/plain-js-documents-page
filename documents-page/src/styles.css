@@ -1,0 +1,10 @@
+* {
+    font-family: "Raleway", sans-serif;
+}
+body {
+    background: #edeef3;
+}
+
+.doc {
+    border: 2px solid red;
+}
