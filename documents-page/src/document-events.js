@@ -24,10 +24,6 @@ class DocumentEvents {
             }
         });
     }
-
-    listenEvent = (name, callback) => {
-        window.addEventListener(name, callback);
-    };
 }
 
 export default DocumentEvents;

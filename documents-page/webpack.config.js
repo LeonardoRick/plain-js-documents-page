@@ -1,7 +1,9 @@
 const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
-module.exports = {
-    mode: 'none',
+module.exports = (_env, argv) => ({
+    mode: argv.mode || 'none',
     entry: './src/index.js',
     output: {
         path: __dirname + '/dist',
@@ -29,4 +31,14 @@ module.exports = {
             },
         ],
     },
-};
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './src/index.html', //source
+            filename: 'index.html', // destination,
+            favicon: 'favicon.ico',
+        }),
+        ...(argv.mode === 'production'
+            ? [new webpack.NormalModuleReplacementPlugin(/\/src\/environment\/index\.js/, 'prod.js')]
+            : []),
+    ],
+});

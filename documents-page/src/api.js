@@ -1,24 +1,16 @@
-const socket = new WebSocket('ws://localhost:8080/notifications');
-
+import environment from './environment';
 class API {
-    constructor() {
-        this.openConnection();
-    }
-    openConnection = () => {
-        socket.addEventListener('open', (event) => {
-            console.log('connection opened!', event);
-        });
-    };
+    socket = new WebSocket(`${environment.websocketURl}/notifications`);
 
-    listenToMessages = (callback) => {
-        socket.addEventListener('message', (event) => {
+    listenToMessages(callback) {
+        this.socket.addEventListener('message', (event) => {
             callback(JSON.parse(event.data));
         });
-    };
+    }
 
-    getDocuments = async () => {
-        return fetch('http://localhost:8080/documents');
-    };
+    async getDocuments() {
+        return fetch(`${environment.httpURl}/documents`).then((r) => r.json());
+    }
 }
 
 export default API;

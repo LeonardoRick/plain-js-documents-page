@@ -10,45 +10,61 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0" />
-
-    <link rel="stylesheet" href="styles.css">
-    <script src="bundle.js" defer></script>
     <title>Documents Page</title>
 </head>
 
 <body>
     <div class="header">
-        <div class="notifications-container">
-            <div>
+        <div id="notifications-container" style="visibility: hidden;" class="notifications-container">
+            <div class="icon-wrapper">
                 <span class="material-symbols-outlined">
                     notifications
                 </span>
-                <span id="notification-number"></span>
+                <span id="notification-number" class="notification-number"></span>
             </div>
+            <span class="text">New document added</span>
         </div>
     </div>
     <div class="content">
-        <h1>Documents</h1>
-        <div class="actions">
+        <h1 class="documents-title">Documents</h1>
+        <div id="actions" class="actions">
             <div class="sort">
                 <span>Sort by: </span> <select name="sort" id="sortSelect">
-                    <option value="">Select one...</option>
-                    <option value="name">Name</option>
+                    <option value="" class="empty">Select one...</option>
+                    <option value="title">Title</option>
                     <option value="version">Version</option>
+                    <option value="createdAt">Most Recent</option>
                 </select>
             </div>
-            <div class="change-visualization">
-                <span id="view-list" class="material-symbols-outlined">
+            <div class="change-view">
+                <span id="view-list" class="material-symbols-outlined active">
                     view_list
                 </span>
                 <span id="view-grid" class="material-symbols-outlined">
                     calendar_view_month
                 </span>
             </div>
-            <div id="document-list" class="document-list view-list"></div>
+        </div>
+        <div id="table-header" class="table-header">
+            <span class="name">Name</span>
+            <span>Contributors</span>
+            <span>Attachments</span>
+        </div>
+        <div id="document-list" class="document-list view-list">
+            <button id="add-document" class="add-document">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                Add document
+            </button>
+        </div>
+        <div id="error" class="error" style="display: none;">
+
+            <h2>Something wrong happened loading documents</h2>
+            <p>Verify your internet and if the proper endpoints are being called adn try again</p>
         </div>
     </div>
 </body>
