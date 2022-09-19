@@ -20,9 +20,11 @@ The application setup is done using `webpack` to wrap the final `js bundle` and 
 
 The application also uses `babel` to allow coding with latest `ECMAScript` features.
 
-The `src` folder holds all the application logic, including the `environment` folder, that is currently used on `api.js` to setup the backend endpoint. Be aware that `npm run build` will not work properly because first you need to set valid `urls` inside `environment/prod.js`, since webpack replaces `environment/index.js` with this file during production build.
+The `src/` folder holds all the application logic, including the `environment` folder, that is currently used on `api.js` to setup the backend endpoint. Be aware that `npm run build` will not work properly because first you need to set valid `urls` inside `environment/prod.js`, since webpack replaces `environment/index.js` with this file during production build.
 
-The `tests` folder holds everything related to testing the application, including a `__mocks__` folder that can be used to store all mocks needed.
+The `utils/` folder holds some useful functions used to implement date formating (`date.js`) and helper prototype functions to write and read objects on localStorage (`storage.js`)
+
+The `tests/` folder holds everything related to testing the application, including a `__mocks__` folder that can be used to store all mocks needed.
 
 ## File by File
 
@@ -56,4 +58,4 @@ The `tests` folder holds everything related to testing the application, includin
 
 It was decided to not add `Typescript` to focus the coding more on `vanillaJS` features. Since the business model does not hold more than one type (the document itself), adding it does not seemed to be something useful. At this point it can still be easily added if needed.
 
-It was one of the coolest coding challenges I've ever done. It's nice to get in touch with plain Javascript now and then. Keep doing the great job :)
+It was one of the coolest coding challenges I've ever done. It's nice to get in touch with plain javascript now and then. Keep doing the great job :)

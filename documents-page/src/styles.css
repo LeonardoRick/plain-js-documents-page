@@ -30,9 +30,15 @@ h1.documents-title {
     margin-bottom: 48px;
 }
 
+h2 {
+    margin: 0;
+}
+
 .header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-bottom: 48px;
 }
 
@@ -41,6 +47,13 @@ h1.documents-title {
     background-color: #f4f5f7;
     padding: 8px 16px;
     display: flex;
+    align-items: center;
+}
+
+.header .cached-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     align-items: center;
 }
 

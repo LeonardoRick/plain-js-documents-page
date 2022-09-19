@@ -46,6 +46,7 @@ describe('Main', () => {
     });
 
     it('should call addDocumentsError when a error happens during documents fetch', async () => {
+        jest.spyOn(console, 'error').mockImplementation();
         jest.spyOn(main.api, 'getDocuments').mockImplementation(() => Promise.reject('something went wrong'));
         const addDocumentsError = jest.spyOn(main.uiUpdates, 'addDocumentsError');
         await main.fetchDocuments();

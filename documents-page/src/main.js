@@ -1,4 +1,5 @@
 import './styles.css';
+import './utils/storage';
 import API from './api';
 import UIUpdates from './ui-updates';
 import DocumentEvents from './document-events';
@@ -16,13 +17,25 @@ class Main {
     }
 
     async fetchDocuments() {
+        let cached = false;
         try {
             this.documents = await this.api.getDocuments();
+            localStorage.setObject('documents', this.documents);
             this.uiUpdates.addDocumentsOnHtml(this.documents);
             this.uiUpdates.sortDocuments('createdAt');
         } catch (e) {
-            this.uiUpdates.addDocumentsError();
+            const cachedDocuments = localStorage.getObject('documents');
+            if (cachedDocuments && Object.keys(cachedDocuments).length > 0) {
+                cached = true;
+                this.uiUpdates.addDocumentsOnHtml(cachedDocuments);
+                this.uiUpdates.sortDocuments('createdAt');
+            } else {
+                this.uiUpdates.addDocumentsError();
+            }
+            console.error(e);
         }
+
+        this.uiUpdates.toggleCachedMessage(cached);
     }
 
     setEventListeners() {

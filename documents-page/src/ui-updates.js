@@ -78,6 +78,10 @@ class UIUpdates {
         }
     }
 
+    toggleCachedMessage(cached) {
+        document.getElementById('cached-container').style.display = cached ? 'flex' : 'none';
+    }
+
     addDocumentsError() {
         document.getElementById('document-list').innerHTML = '';
         document.getElementById('table-header').style.display = 'none';

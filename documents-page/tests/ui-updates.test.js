@@ -79,6 +79,13 @@ describe('UIUpdates', () => {
         expect(document.getElementById('9e80f868-4638-4e9d-95fe-74d5a4e4584c').parentElement.id).toEqual('document-list');
     });
 
+    it('should show cached div when calling toggleCachedMessage with true and hide when calling with false', () => {
+        uiUpdates.toggleCachedMessage(false);
+        expect(document.getElementById('cached-container').style.display).toEqual('none');
+        uiUpdates.toggleCachedMessage(true);
+        expect(document.getElementById('cached-container').style.display).toEqual('flex');
+    });
+
     it('should show error div when calling addDocumentsError', () => {
         uiUpdates.addDocumentsError();
         expect(document.getElementById('document-list').innerHTML).toEqual('');
