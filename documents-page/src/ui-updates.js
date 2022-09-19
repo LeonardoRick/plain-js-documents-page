@@ -1,3 +1,5 @@
+import { daysFromToday } from './utils/date';
+
 class UIUpdates {
     view = {
         'view-list': {
@@ -27,33 +29,45 @@ class UIUpdates {
     }
 
     changeDocumentsView(cls) {
-        document.getElementById('document-list').classList.remove(this.view[cls].inverted);
-        document.getElementById('document-list').classList.add(cls);
+        const documentList = document.getElementById('document-list');
+        documentList.classList.remove(this.view[cls].inverted);
+        documentList.classList.add(cls);
+
         document.getElementById(cls).classList.add('active');
         document.getElementById(this.view[cls].inverted).classList.remove('active');
+
         document.getElementById('table-header').style.display = this.view[cls].headerDisplay;
     }
 
     addDocumentsOnHtml(documents) {
-        if (documents) {
+        if (documents && documents.length) {
             document.getElementById('error').style.display = 'none';
             documents.forEach((doc) => {
                 const docDiv = document.createElement('div');
                 docDiv.classList.add('doc');
+                docDiv.setAttribute('id', doc.ID);
                 docDiv.setAttribute('title', doc.Title);
                 docDiv.setAttribute('version', doc.Version);
                 docDiv.setAttribute('createdAt', doc.CreatedAt);
 
                 const metadataDiv = document.createElement('div');
-                const title = document.createElement('span');
-                const version = document.createElement('span');
                 metadataDiv.classList.add('metadata');
+
+                const title = document.createElement('span');
                 title.classList.add('title');
-                version.classList.add('version');
                 title.innerHTML = doc.Title;
+
+                const version = document.createElement('span');
+                version.classList.add('version');
                 version.innerHTML = `Version ${doc.Version}`;
+
+                const createdAt = document.createElement('span');
+                createdAt.classList.add('createdAt');
+                createdAt.innerHTML = `${daysFromToday(doc.CreatedAt)} days ago`;
+
                 metadataDiv.appendChild(title);
                 metadataDiv.appendChild(version);
+                metadataDiv.appendChild(createdAt);
 
                 const contributorsDiv = this.createDivList(doc.Contributors, 'contributors', 'Name');
                 const attachmentsDiv = this.createDivList(doc.Attachments, 'attachments');

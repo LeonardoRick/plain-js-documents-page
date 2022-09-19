@@ -1,6 +1,5 @@
 {
     "typeAcquisition": {
         "include": ["jest"]
-    },
-    "exclude": ["./tests"]
+    }
 }
