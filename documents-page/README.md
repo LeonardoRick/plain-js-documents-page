@@ -10,7 +10,7 @@ This project is a implementation of the [Frontend Engineer Challange](https://gi
 ## Commands
 
 - `npm install` - Install the needed dev dependencies
-- `npm run test` - Run tests and generate coverage
+- `npm run test` - Run tests and generate coverage inside `coverage/`
 - `npm run build` - Builds the application in `production mode`
 - `npm start` - Run the application in `development mode` with hot-reload
 
