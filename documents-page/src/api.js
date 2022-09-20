@@ -1,6 +1,14 @@
 import environment from './environment';
 class API {
-    socket = new WebSocket(`${environment.websocketURl}/notifications`);
+    socket;
+
+    constructor() {
+        try {
+            this.socket = new WebSocket(`${environment.websocketURl}/notifications`);
+        } catch (e) {
+            console.error(e);
+        }
+    }
 
     listenToMessages(callback) {
         this.socket.addEventListener('message', (event) => {
