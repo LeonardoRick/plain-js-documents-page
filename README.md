@@ -14,6 +14,8 @@ This project is a implementation of the [Frontend Engineer Challange](https://gi
 - `npm run build` - Builds the application in `production mode`
 - `npm start` - Run the application in `development mode` with hot-reload
 
+  don't forget to go inside backend/ folder and run `go run server.go`
+
 ## Application Overview
 
 The application setup is done using `webpack` to wrap the final `js bundle` and make the development process smoother.
