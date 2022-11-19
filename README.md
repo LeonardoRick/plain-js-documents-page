@@ -5,7 +5,7 @@ This project is a implementation of the [Frontend Engineer Challange](https://gi
 
 | Documents List View | Documents Grid View |
 |---------------------|---------------------|
-|![Main page of the application with the list view option selected](./src/assets/documents-view-list.png 'Documents List View')|![Main page of the application with the grid view option selected](./src/assets/documents-view-grid.png 'Documents Grid View')|
+|![Main page of the application with the list view option selected](./documents-page/src/assets/documents-view-list.png 'Documents List View')|![Main page of the application with the grid view option selected](./documents-page/src/assets/documents-view-grid.png 'Documents Grid View')|
 
 ## Commands
 
