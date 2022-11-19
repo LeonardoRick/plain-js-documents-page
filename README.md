@@ -1,7 +1,5 @@
 
-# Holded Documents Page
-
-This project is a implementation of the [Frontend Engineer Challange](https://github.com/holdedhub/careers/tree/main/challenges/frontend) created by Holded
+# Documents Page
 
 | Documents List View | Documents Grid View |
 |---------------------|---------------------|

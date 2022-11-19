@@ -1,7 +1,7 @@
 {
     "name": "documents-page",
     "version": "1.0.0",
-    "description": "Holded documents page",
+    "description": "Documents page",
     "main": "src/index.js",
     "scripts": {
         "test": "jest",
