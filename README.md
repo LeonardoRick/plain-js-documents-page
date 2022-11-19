@@ -57,5 +57,3 @@ The `tests/` folder holds everything related to testing the application, includi
 ### Final Notes
 
 It was decided to not add `Typescript` to focus the coding more on `vanillaJS` features. Since the business model does not hold more than one type (the document itself), adding it does not seemed to be something useful. At this point it can still be easily added if needed.
-
-It was one of the coolest coding challenges I've ever done. It's nice to get in touch with plain javascript now and then. Keep doing the great job :)
